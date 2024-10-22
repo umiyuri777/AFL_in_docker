@@ -32,11 +32,10 @@ RUN make AFL_NO_X86=1 && make install
     # cp test-instr.c /tmp/afl-ramdisk/ \
     # cd /tmp/afl-ramdisk
 
-# afl-gcc-fastが正しくインストールされたか確認
+# afl用にコンパイル
 RUN afl-gcc -O3 test-instr.c && \
     mkdir test_in && \
     echo -n 'hoge' > test_in/hello
 
 # コンテナのデフォルトコマンドを設定（変更可能）
 CMD ["bash"]
-# CMD ["afl-fuzz", "-i", "test_in", "-o", "test_out", "-m", "none", "--", "./a.out"]
