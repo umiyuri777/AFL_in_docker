@@ -32,8 +32,7 @@ RUN make AFL_NO_X86=1 && make install
     # cp test-instr.c /tmp/afl-ramdisk/ \
     # cd /tmp/afl-ramdisk
 
-# afl用にコンパイルする
-# ファジングするプログラムはtest-instr.c
+# afl-gcc-fastが正しくインストールされたか確認
 RUN afl-gcc -O3 test-instr.c && \
     mkdir test_in && \
     echo -n 'hoge' > test_in/hello
