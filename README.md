@@ -15,7 +15,7 @@ git clone https://github.com/umiyuri777/AFL_in_docker.git
 docker buildx build --platform linux/amd64 -t afl-in-docker .
 ```
 
-3. dockerコンテナを起動
+3. dockerコンテナを起動(コンテナのビルド時にファジングするファイルはコンパイルさせています)
 
 ```sh
 docker run -itd afl-in-docker 
@@ -29,10 +29,6 @@ docker ps
 
 #コンテナの中に入る
 docker exec -i -t <確認したコンテナID> /bin/bash 
-```
-4. AFL用にファジングしたいプログラムをコンパイル
-```
-
 ```
 
 6. AFLを起動
